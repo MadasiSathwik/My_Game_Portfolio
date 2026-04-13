@@ -112,7 +112,7 @@ export default function HeroSection() {
           className="relative h-[500px] w-full flex items-center justify-center"
         >
           {/* Decorative rings */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
             <motion.div 
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -125,14 +125,31 @@ export default function HeroSection() {
             />
           </div>
           
-          <div className="w-full h-full z-10">
-            <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-              <ambientLight intensity={0.5} />
-              <pointLight position={[10, 10, 10]} intensity={1} color="#00f3ff" />
-              <pointLight position={[-10, -10, -10]} intensity={1} color="#bc13fe" />
-              <HologramAvatar />
-            </Canvas>
-          </div>
+          {/* Profile Photo Container */}
+          <motion.div 
+            className="relative z-10 w-64 h-64 md:w-80 md:h-80 rounded-full p-2 bg-gradient-to-tr from-neon-blue to-neon-purple shadow-[0_0_30px_rgba(0,243,255,0.3)]"
+            animate={{ y: [-10, 10, -10] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <div className="w-full h-full rounded-full overflow-hidden border-4 border-dark-bg bg-dark-bg relative group">
+              {/* Holographic Overlay */}
+              <div className="absolute inset-0 bg-neon-blue/20 mix-blend-overlay z-10 group-hover:bg-transparent transition-colors duration-500" />
+              
+              {/* Scanline effect */}
+              <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.25)_50%)] bg-[length:100%_4px] z-20 pointer-events-none opacity-50" />
+              
+              {/* Profile Image - Replace src with your actual photo path */}
+              <img 
+                src="/profile.jpg" 
+                alt="Sathwik Madasi"
+                className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
+                onError={(e) => {
+                  // Fallback placeholder if /profile.jpg doesn't exist yet
+                  e.currentTarget.src = 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop';
+                }}
+              />
+            </div>
+          </motion.div>
         </motion.div>
         
       </div>
