@@ -143,10 +143,6 @@ export default function HeroSection() {
                 src="/profile_pic.jpg" 
                 alt="Sathwik Madasi"
                 className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
-                onError={(e) => {
-                  // Fallback placeholder if /profile_pic.jpg doesn't exist yet
-                  e.currentTarget.src = 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop';
-                }}
               />
             </div>
           </motion.div>
