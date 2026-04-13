@@ -140,7 +140,7 @@ export default function HeroSection() {
               
               {/* Profile Image - Replace src with your actual photo path */}
               <img 
-                src="/profile_pic.jpg" 
+                src="profile_pic.jpg" 
                 alt="Sathwik Madasi"
                 className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
               />
