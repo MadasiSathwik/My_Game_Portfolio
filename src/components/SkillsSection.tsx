@@ -48,7 +48,6 @@ function SkillNode({ position, category, color, onClick, playHover }: any) {
           color="white"
           anchorX="center"
           anchorY="middle"
-          font="/fonts/Orbitron-Regular.ttf" // We'll just use default font for now if not loaded
         >
           {category}
         </Text>
